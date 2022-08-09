@@ -68,7 +68,7 @@ const PostInput = () => {
       >
         <div className="border border-gray-600 cursor-pointer hover:bg-gray-100 rounded-full  overflow-hidden flex  h-[35px] w-[35px]">
           <Image
-            src={`https://avatars.dicebear.com/api/open-peeps/${"reddit-clone"}.svg`}
+            src={`https://avatars.dicebear.com/api/open-peeps/${session.user?.name}.svg`}
             height={35}
             width={35}
             className=""

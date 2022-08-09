@@ -12,7 +12,7 @@ import {
   ChartSquareBarIcon,
 } from "@heroicons/react/outline";
 import Image from "next/image";
-import { useSession } from "next-auth/react";
+import { signOut, useSession } from "next-auth/react";
 
 const Navbar = () => {
   const { data: session } = useSession();
@@ -50,7 +50,10 @@ const Navbar = () => {
         <PlusSmIcon className="icon" />
         <SpeakerphoneIcon className="icon" />
       </div>
-      <div className="flex ml-4 space-x-1  cursor-pointer group">
+      <div
+        className="flex ml-4 space-x-1  cursor-pointer group"
+        onClick={() => signOut()}
+      >
         <div className="border border-gray-600 rounded-full flex overflow-hidden h-[30px] w-[30px]">
           <Image
             src={`https://avatars.dicebear.com/api/open-peeps/${session.user?.name}.svg`}
