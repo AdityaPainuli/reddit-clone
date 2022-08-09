@@ -60,9 +60,9 @@ const PostInput = () => {
   };
 
   return (
-    <div>
+    <div className="h-max">
       <div
-        className={`flex p-2 items-center space-x-2 bg-white rounded-sm shadow-xl ${
+        className={`flex p-2  items-center space-x-2 bg-white rounded-sm shadow-xl ${
           loading && "opacity-60"
         }`}
       >
@@ -74,34 +74,34 @@ const PostInput = () => {
             className=""
           />
         </div>
-        <form
-          className="bg-gray-100 flex-1  outline-none  border hover:border-blue-400 rounded-sm"
-          onSubmit={(e) => addPost(e)}
-        >
-          <input
-            className="w-[100%] bg-transparent p-2 outline-none border-1 focus:border-blue-500"
-            placeholder="Create Post"
-            value={input}
-            onChange={(e) => setInput(e.target.value)}
-          />
-        </form>
-        {!loading && (
-          <div className="flex items-center space-x-2">
-            <div>
-              <PhotographIcon
-                className="icon !text-gray-600 !rounded-sm !border-none"
-                onClick={() => filePickerRef.current.click()}
-              />
-              <input
-                type="file"
-                ref={filePickerRef}
-                hidden
-                onChange={addImageToPost}
-              />
-            </div>
-            <LinkIcon className="icon !text-gray-600 !rounded-sm !border-none" />
+        <form className="flex-1 flex" onSubmit={(e) => addPost(e)}>
+          <div className="bg-gray-100 flex-1  outline-none  border hover:border-blue-400 rounded-sm">
+            <input
+              className="w-[100%] bg-transparent p-2 outline-none border-1 focus:border-blue-500"
+              placeholder="Create Post"
+              value={input}
+              onSubmit={(e) => addPost(e)}
+              onChange={(e) => setInput(e.target.value)}
+            />
           </div>
-        )}
+          {!loading && (
+            <div className="flex items-center space-x-2">
+              <div>
+                <PhotographIcon
+                  className="icon !text-gray-600 !rounded-sm !border-none"
+                  onClick={() => filePickerRef.current.click()}
+                />
+                <input
+                  type="file"
+                  ref={filePickerRef}
+                  hidden
+                  onChange={addImageToPost}
+                />
+              </div>
+              <LinkIcon className="icon !text-gray-600 !rounded-sm !border-none" />
+            </div>
+          )}
+        </form>
       </div>
       {selectedFile && (
         <div className="relative">
