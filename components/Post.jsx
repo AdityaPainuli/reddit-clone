@@ -13,8 +13,8 @@ const Post = ({ id, post, postPage }) => {
   const time = new Date(post.timestamp * 1000);
 
   return (
-    <div className="flex my-4 shadow-lg">
-      <div className="bg-gray-100 p-2 rounded-l-md flex flex-col items-center">
+    <div className="flex flex-col-reverse md:flex-row my-4 shadow-lg">
+      <div className="bg-gray-100 p-2 rounded-l-md flex md:flex-col items-center">
         <ArrowUpIcon className="menu-items !h-7" />
         <span className="font-semibold  ">10</span>
         <ArrowDownIcon className="menu-items !h-7" />
@@ -53,8 +53,8 @@ const Post = ({ id, post, postPage }) => {
             <ChatAltIcon className="menu-items !h-8 group-hover:text-blue-400 hover:bg-transparent " />
             <span>Comments</span>
           </div>
-          <div className="flex items-center hover:bg-gray-300 p-1 rounded-md cursor-pointer group">
-            <GiftIcon className="menu-items !h-8 group-hover:text-blue-400 hover:bg-transparent " />
+          <div className="items-center hidden md:flex hover:bg-gray-300 p-1 rounded-md cursor-pointer group">
+            <GiftIcon className="menu-items  !h-8 group-hover:text-blue-400 hover:bg-transparent " />
             <span>Awards</span>
           </div>
           <div className="flex items-center hover:bg-gray-300 p-1 rounded-md cursor-pointer group">
