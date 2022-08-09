@@ -1,3 +1,18 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+  background-color: #dbe0e6;
+}
+
+.icon {
+  @apply p-1 h-8 w-8 rounded-full cursor-pointer border border-gray-700 hover:bg-gray-300;
+}
+
+.menu-items {
+  @apply hover:bg-gray-300 px-2 py-1 rounded-md cursor-pointer hover:text-blue-600;
+}
+.items-active {
+  @apply text-blue-600 bg-gray-300;
+}
