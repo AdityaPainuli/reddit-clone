@@ -1,6 +1,7 @@
 import "../styles/globals.css";
 import type { AppProps } from "next/app";
 import { SessionProvider } from "next-auth/react";
+import { RecoilRoot } from "recoil";
 
 type data_type = {
   Component: any;
@@ -10,7 +11,9 @@ type data_type = {
 function MyApp({ Component, pageProps: { session, ...pageProps } }: data_type) {
   return (
     <SessionProvider session={session}>
-      <Component {...pageProps} />
+      <RecoilRoot>
+        <Component {...pageProps} />
+      </RecoilRoot>
     </SessionProvider>
   );
 }

@@ -9,9 +9,13 @@ import {
   useSession,
 } from "next-auth/react";
 import Login from "../components/Login";
+import { useRecoilState } from "recoil";
+import { modalState } from "../atoms/modalAtom";
+import Modal from "../components/Modal";
 
 const Home = ({ providers }) => {
   const { data: session } = useSession();
+  const [isOpen, setIsOpen] = useRecoilState(modalState);
   if (!session) {
     return <Login providers={providers} />;
   }
@@ -31,6 +35,7 @@ const Home = ({ providers }) => {
         <Feed />
         {/* Sidebar */}
         <Sidebar />
+        {isOpen && <Modal />}
       </main>
     </div>
   );
